@@ -9,7 +9,6 @@ dt = 1/100
 
 class Objects:
 
-    
     def __init__(self):
 
         self.mass = np.random.random()*10
@@ -22,17 +21,15 @@ class Objects:
         self.force = np.array([0, 0], dtype=float)
         
         for obj in objs:
-            
             self.seperation = np.sqrt((self.pos[0]-obj.pos[0])**2 + (self.pos[1]-obj.pos[1])**2)
             
             if self.seperation > .1: # Turning off gravity if the objects get too close together
-                
-                self.force += np.array([   (G*self.mass*obj.mass/(self.seperation**2))*
-                                      ((np.absolute(obj.pos[0] - self.pos[0]))/self.seperation)*
-                                      float(np.where(obj.pos[0]-self.pos[0] != 0, (obj.pos[0]-self.pos[0])/(np.absolute(obj.pos[0]-self.pos[0])), 0)),
-                                      (G*self.mass*obj.mass/(self.seperation**2))*
-                                      ((np.absolute(obj.pos[1] - self.pos[1]))/self.seperation)*
-                                      float(np.where(obj.pos[1]-self.pos[1] != 0, (obj.pos[1]-self.pos[1])/(np.absolute(obj.pos[1]-self.pos[1])), 0))])
+                self.force += np.array([(G*self.mass*obj.mass/(self.seperation**2))*
+                                        ((np.absolute(obj.pos[0] - self.pos[0]))/self.seperation)*
+                                        float(np.where(obj.pos[0]-self.pos[0] != 0, (obj.pos[0]-self.pos[0])/(np.absolute(obj.pos[0]-self.pos[0])), 0)),
+                                        (G*self.mass*obj.mass/(self.seperation**2))*
+                                        ((np.absolute(obj.pos[1] - self.pos[1]))/self.seperation)*
+                                        float(np.where(obj.pos[1]-self.pos[1] != 0, (obj.pos[1]-self.pos[1])/(np.absolute(obj.pos[1]-self.pos[1])), 0))])
                 self.acceleration = self.force/self.mass
                 self.v += (self.acceleration*dt)
                 self.pos += self.v*dt
@@ -47,7 +44,6 @@ class Objects:
             cm += positions[i]*masses[i]
         cm = cm/np.sum(masses)
         return cm
-
 
 
 plt.style.use('dark_background')
