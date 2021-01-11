@@ -8,4 +8,4 @@ There are a few things to note:
  - gravity is turned off when the objects come too close together;
  - objects will never strike each other.
  
-Many animations to be uploaded soon.
+<img src="2-body.gif" width="45%" title="2-body"/> <img src="3-body.gif" width="45%" title="3-body"/>
