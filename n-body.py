@@ -67,7 +67,6 @@ def animate(i):
             obj.update(objects)
         
     for i in range(len(scatters)):
-        scatters[i].set_offsets(objects[i].pos)
         es[i].tail([objects[i].pos[0]], [objects[i].pos[1]], scatters[i], plt.get_cmap('hsv')(i/len(scatters)), 30)
     
     cm = Objects.center_of_mass([obj.pos for obj in objects], [obj.mass for obj in objects])
