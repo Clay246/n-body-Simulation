@@ -21,7 +21,7 @@ class Objects:
         self.force = np.array([0, 0], dtype=float)
         
         for obj in objs:
-            self.seperation = np.sqrt((self.pos[0]-obj.pos[0])**2 + (self.pos[1]-obj.pos[1])**2)
+            self.seperation = np.hypot(self.pos[0]-obj.pos[0], self.pos[1]-obj.pos[1])
             
             if self.seperation > .1: # Turning off gravity if the objects get too close together
                 self.force += np.array([(G*self.mass*obj.mass/(self.seperation**2))*
