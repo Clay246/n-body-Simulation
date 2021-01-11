@@ -5,7 +5,7 @@ import mplanimations as ans
 import random
 
 G = .00001 # The gravitational constant is set at this value for convenience
-dt = 1/100
+dt = 1/500
 
 class Objects:
 
@@ -62,7 +62,7 @@ scatters = [ax.scatter(obj.pos[0], obj.pos[1], s=5) for obj in objects]
 es = [ans.Effects() for i in range(len(objects))]
 
 def animate(i):
-    for i in range(10):
+    for i in range(50):
         for obj in objects:
             obj.update(objects)
         
@@ -73,6 +73,6 @@ def animate(i):
     ax.set_xlim(cm[0]-2.5, cm[0]+2.5)
     ax.set_ylim(cm[1]-2.5, cm[1]+2.5)
 
-animation = animation.FuncAnimation(fig, animate, interval=10, frames=2000, repeat=False)
+animation = animation.FuncAnimation(fig, animate, interval=20, frames=2000, repeat=False)
 
 plt.show()
