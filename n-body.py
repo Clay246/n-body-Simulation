@@ -2,7 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import mplanimations as ans
-import random
 
 G = .0001 # The gravitational constant is set at this value for convenience
 dt = 1/500
@@ -13,7 +12,7 @@ class Objects:
 
         self.mass = np.random.random()*10
         self.pos = np.array([np.random.random()*2, np.random.random()*2], dtype=float)
-        self.v = np.array([[-1,1][random.randrange(2)]*np.random.random()/50, [-1,1][random.randrange(2)]*np.random.random()/50], dtype=float)
+        self.v = np.array([(np.random.random()-.5)/100, (np.random.random()-.5)/100], dtype=float)
 
         
     def update(self, objs):
