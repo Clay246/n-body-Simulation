@@ -8,4 +8,6 @@ There are a few things to note:
  - gravity is turned off when the objects come too close together;
  - objects will never strike each other.
  
+The simulation will of course become more inaccurate further into the animations (significantly, in fact, as the motion is chaotic); however, it is nevertheless interesting to see how the bodies can generally be expected to behave in various situations. Greater accuracy can be obtained with greater computation power and time.
+ 
 <img src="2-body.gif" width="45%" title="2-body"/> <img src="3-body.gif" width="45%" title="3-body"/>
