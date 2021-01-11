@@ -4,7 +4,7 @@ import matplotlib.animation as animation
 import mplanimations as ans
 import random
 
-G = .00001 # The gravitational constant is set at this value for convenience
+G = .0001 # The gravitational constant is set at this value for convenience
 dt = 1/500
 
 class Objects:
