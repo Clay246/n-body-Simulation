@@ -4,22 +4,19 @@ import matplotlib.animation as animation
 import mplanimations as ans
 import random
 
-m1 = 10
-m2 = 10
-m3 = 10
 G = .00001
-
 dt = 1/100
-
 
 class Objects:
 
+    
     def __init__(self):
 
         self.mass = np.random.random()*10
         self.pos = np.array([np.random.random()*2, np.random.random()*2], dtype=float)
         self.v = np.array([[-1,1][random.randrange(2)]*np.random.random()/50, [-1,1][random.randrange(2)]*np.random.random()/50], dtype=float)
 
+        
     def update(self, objs):
 
         self.force = np.array([0, 0], dtype=float)
@@ -29,6 +26,7 @@ class Objects:
             self.seperation = np.sqrt((self.pos[0]-obj.pos[0])**2 + (self.pos[1]-obj.pos[1])**2)
             
             if self.seperation > .1: # Turning off gravity if the objects get too close together
+                
                 self.force += np.array([   (G*self.mass*obj.mass/(self.seperation**2))*
                                       ((np.absolute(obj.pos[0] - self.pos[0]))/self.seperation)*
                                       float(np.where(obj.pos[0]-self.pos[0] != 0, (obj.pos[0]-self.pos[0])/(np.absolute(obj.pos[0]-self.pos[0])), 0)),
@@ -42,13 +40,14 @@ class Objects:
         else:
             self.pos += self.v*dt
 
+            
     def center_of_mass(positions, masses):
         cm = 0
         for i in range(len(masses)):
             cm += positions[i]*masses[i]
         cm = cm/np.sum(masses)
         return cm
-            
+
 
 
 plt.style.use('dark_background')
@@ -82,5 +81,3 @@ def animate(i):
 animation = animation.FuncAnimation(fig, animate, interval=10, frames=2000, repeat=False)
 
 plt.show()
-
-
