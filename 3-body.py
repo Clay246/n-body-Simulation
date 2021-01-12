@@ -89,9 +89,4 @@ def animate(i):
 
 animation = animation.FuncAnimation(fig, animate, interval=20, frames=1000, repeat=False)
 
-##plt.show()
-
-plt.rcParams["animation.convert_path"] = r"C:\Program Files\ImageMagick-7.0.9-Q16\magick.exe"
-animation.save(r"C:\Users\ClayK\OneDrive\Programs\3-body.gif",writer="imagemagick", extra_args="convert", fps=50)
-
-
+plt.show()
